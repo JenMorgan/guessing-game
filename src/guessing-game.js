@@ -1,41 +1,29 @@
 class GuessingGame {
-    constructor() {
-        this.min=min;
-        this.max=max;
-        this.mid=Math.floor((this.min+this.max)/2);
+        constructor() {
+    	this.min=0;
+    	this.max=0;
+    	
     }
 
     setRange(min, max) {
-        min=this.min;
-        max=this.max;
-        this.answer=Math.floor(Math.random()*(max-min+1)+min);
+    	this.min=min;
+    	this.max=max;
+
     }
 
     guess() {
-        var guessed = this.mid;
-        if (guessed===this.answer){
-            return this.answer;
-        }
-        else if (this.answer<guessed){
-            this.lower();
-        }
-        else if (this.answer>guessed) {
-            this.greater();
-        }
+    		return(Math.ceil(this.min+((this.max-this.min)/2)));
+    
     }
 
     lower() {
-        var min=this.mid;
-        var max=this.max;
-        this.answer=Math.floor(Math.random()*(max-min+1)+min);
-        this.guess();
-    }
+    	this.max=Math.ceil(this.min+((this.max-this.min)/2));
+    } 
+   
 
     greater() {
-        var max=this.mid;
-        var min=this.min;
-        this.answer=Math.floor(Math.random()*(max-min+1)+min);
-        this.guess();
+    	this.min=Math.ceil(this.min+((this.max-this.min)/2));
+
     }
 }
 
